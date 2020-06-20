@@ -1,0 +1,13 @@
+*.js
+*.d.ts
+node_modules
+workshop/public/**
+workshop/content/public/**
+.DS_Store
+obj/
+cdk.out/
+bin/
+*~
+.idea/
+ignored
+public

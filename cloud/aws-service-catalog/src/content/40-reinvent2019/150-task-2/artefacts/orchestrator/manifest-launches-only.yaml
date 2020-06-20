@@ -1,0 +1,8 @@
+  aws-config-rds-storage-encrypted:
+    portfolio: "reinvent-cloud-engineering-governance"
+    product: "aws-config-rds-storage-encrypted"
+    version: "v1"
+    deploy_to:
+      tags:
+        - tag: "type:prod"
+          regions: "default_region"

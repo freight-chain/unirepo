@@ -1,0 +1,35 @@
+# This is an example goreleaser.yaml file with some sane defaults.
+# Make sure to check the documentation at http://goreleaser.com
+before:
+  hooks:
+    # you may remove this if you don't use vgo
+    - go mod download
+builds:
+  - main: main.go
+    ldflags:
+      - -s -w -X "main.version={{.Env.VERSION}}"
+    env:
+      - CGO_ENABLED=0
+      - GO111MODULE=on
+checksum:
+  name_template: 'checksums.txt'
+snapshot:
+  name_template: "{{ .Tag }}-next"
+changelog:
+  sort: asc
+  filters:
+    exclude:
+    - '^docs:'
+    - '^test:'
+brew:
+  # Name template of the recipe
+  # Default to project name
+  name: gravitywell
+
+  # Repository to push the tap to.
+  github:
+    owner: AlexsJones
+    name: homebrew-gravitywell
+
+  install: |
+    bin.install "gravitywell"

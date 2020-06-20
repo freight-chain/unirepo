@@ -1,0 +1,10 @@
+---
+extends: "@elastic/kibana"
+
+plugins:
+  - ava
+
+settings:
+  import/resolver:
+    "@elastic/eslint-import-resolver-kibana":
+      rootPackageName: template-kibana-plugin

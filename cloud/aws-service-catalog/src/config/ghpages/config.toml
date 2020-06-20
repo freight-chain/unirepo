@@ -1,0 +1,33 @@
+baseURL= "https://aws-samples.github.io/aws-service-catalog-tools-workshop/"
+staticDir= ["static", "css"]
+languageCode = "en-us"
+defaultContentLanguage = "en"
+title = "Service Catalog Tools Workshop"
+theme = "learn"
+uglyurls = true
+googleAnalytics = "UA-166283550-1"
+sectionPagesMenu = "main"
+pygmentsCodeFences = true
+pygmentsStyle = "monokai"
+relativeURLs = true
+canonifyURLs = true
+
+[params]
+themeVariant = "mine"
+showVisitedLinks = false
+author = "Service Catalog Tools Team"
+description = "AWS Service Catalog Tools Workshop"
+disableSearch = true
+disableAssetsBusting = true
+disableLanguageSwitchingButton = true
+disableShortcutsTitle = true
+
+[outputs]
+home = [ "HTML", "AMP", "RSS", "JSON"]
+page = [ "HTML", "AMP"]
+
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true

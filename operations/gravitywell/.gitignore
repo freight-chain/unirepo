@@ -1,0 +1,12 @@
+*json*
+*dist*
+_vendor*
+vendor
+gravitywell
+staging
+.idea
+.gravitywell
+deployment
+_config.yml
+example-*/deployment/*
+logs

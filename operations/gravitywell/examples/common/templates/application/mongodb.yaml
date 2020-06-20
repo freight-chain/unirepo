@@ -1,0 +1,36 @@
+APIVersion: "v1"
+Kind: "Application"
+Strategy:
+  - Cluster:
+      Name: "{{.clustername}}"
+      Applications:
+        - Application:
+            Name: "kubernetes-mongodb-cluster"
+            Namespace: "mongodb"
+            VCS:
+              FileSystem: # Optional
+              Git: "git@github.com:AlexsJones/kubernetes-mongodb-cluster.git"
+              #Optional tree reference selectors - use one at a time and follow format
+              # refs/heads/{branchname}
+              # refs/tags/{tagname}
+              # refs/remotes/
+              GitReference: refs/heads/master #Optional and this example just pulls master
+            ActionList:
+              Executions:
+                - Execute:
+                  Kind: "Shell"
+                  Configuration:
+                    Command: kubectl create ns mongodb | true
+                - Execute:
+                  Kind: "Shell"
+                  Configuration:
+                    Command: ./build_environment.sh dev
+                - Execute:
+                  Kind: "Shell"
+                  Configuration:
+                    Command: ./generate_pem.sh testExampleKey122
+                - Execute:
+                  Kind: "Kubernetes"
+                  Configuration:
+                    Path: deployment/mongo #Optional value
+                    AwaitDeployment: true #Optional defaults to false

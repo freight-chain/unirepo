@@ -1,0 +1,15 @@
+APIVersion: "v1"
+Kind: "Application"
+Strategy:
+    - Cluster:
+          Name: "gke_beamery-trials_us-east4_testclustera"
+          Applications:
+              - Application:
+                    Name: "kubernetes-apache-tika"
+                    Namespace: "tika"
+                    Git: "git@github.com:AlexsJones/kubernetes-apache-tika.git"
+                    Action:
+                        - Execute:
+                              Shell: "./build_environment.sh default"
+                              Kubectl:
+                                  Path: deployment
